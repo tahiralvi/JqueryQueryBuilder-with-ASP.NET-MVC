@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Castle.DynamicLinqQueryBuilder</id>
+    <version>1.0.5</version>
+    <title>Dynamic Linq Query Builder</title>
+    <authors>Grant Hamm</authors>
+    <owners>Grant Hamm</owners>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>https://github.com/castle-it/dynamic-linq-query-builder</projectUrl>
+    <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple dynamic expression-tree query builder.  You pass it a nested collection of filters for an object, and it materializes a query capable of acting as the filter to an arbitrary collection.</description>
+    <summary>A simple dynamic expression-tree query builder.  You pass it a nested collection of filters for an object, and it materializes a query capable of acting as the filter to an arbitrary collection.</summary>
+    <copyright>Copyright Castle Worldwide, Inc. 2016</copyright>
+    <language>en-US</language>
+    <tags>jquery-query-builder generic query generator linq javascript</tags>
+  </metadata>
+</package>
