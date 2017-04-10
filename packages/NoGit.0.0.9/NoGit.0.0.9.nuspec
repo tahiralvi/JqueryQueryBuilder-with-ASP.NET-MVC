@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NoGit</id>
+    <version>0.0.9</version>
+    <title>NoGit</title>
+    <authors>Pavel Nezhencev</authors>
+    <owners>Pavel Nezhencev</owners>
+    <projectUrl>https://github.com/whyleee/nogit</projectUrl>
+    <iconUrl>http://cloud.ohloh.net/attachments/72402/Git-Icon-1788C_med.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Standalone git command line tool powered by js-git and node.js. Created to get rid of local git dependency in npm and bower, so contains only tiny subset of git features for those tools.</description>
+    <summary>Local git replacement for npm and bower, powered by js-git and node.js.</summary>
+    <releaseNotes>- fixed local config read</releaseNotes>
+    <copyright>© 2015 Pavel Nezhencev</copyright>
+    <tags>node.js standalone git js-git cli tool</tags>
+    <dependencies>
+      <dependency id="Node.js" version="0.10.26.1" />
+    </dependencies>
+  </metadata>
+</package>

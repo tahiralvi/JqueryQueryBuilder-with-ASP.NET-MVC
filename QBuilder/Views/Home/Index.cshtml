@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="row">
+
+    </div>
+    <div id="builder-import_export"></div>
+    <div class="btn-group">
+        <button id="btn-reset" class="btn btn-warning reset" data-target="builder-import_export">Reset</button>
+        <button id="parse-json" class="btn btn-primary parse-json" data-target="builder-import_export">Get rules</button>
+        <button id="parse-sql" class="btn btn-primary parse-sql" data-target="builder-import_export" data-stmt="false">SQL</button>
+    </div>
+
+    <script>
+        var rules_basic = {
+            "condition": "AND",
+            "rules": [
+              {
+                  "id": "1",
+                  "field": "",
+                  "type": "string",
+                  "input": "text",
+                  "operator": "equal",
+                  "value": ""
+              }
+            ],
+            "valid": true
+        };
+
+        var myFilters = [{
+            id: '1',
+            label: '',
+            type: 'string'
+           } 
+         //   ,{
+        //    id: '2',
+        //    label: 'Category',
+        //    type: 'integer',
+        //    input: 'select',
+        //    values: {
+        //        1: 'Books',
+        //        2: 'Movies',
+        //        3: 'Music',
+        //        4: 'Tools',
+        //        5: 'Goodies',
+        //        6: 'Clothes'
+        //    },
+        //    operators: ['equal', 'not_equal', 'in', 'not_in', 'is_null', 'is_not_null']
+        //}, {
+        //    id: '3',
+        //    label: 'Price',
+        //    type: 'double',
+        //    validation: {
+        //        min: 0,
+        //        step: 0.01
+        //    }
+        //}, {
+        //    id: '4',
+        //    label: 'Datepicker',
+        //    type: 'date',
+        //    operators: ['equal', 'not_equal'],
+        //    validation: {
+        //        format: 'YYYY/MM/DD'
+        //    },
+        //    plugin: 'datepicker',
+        //    plugin_config: {
+        //        format: 'yyyy/mm/dd',
+        //        todayBtn: 'linked',
+        //        todayHighlight: true,
+        //        autoclose: true
+        //    }
+            //}
+        ];
+
+        $(document).ready(function () {
+            
+            // Fix for Selectize
+            $('#builder-import_export').on('afterCreateRuleInput.queryBuilder', function (e, rule) {
+                if (rule.filter.plugin == 'selectize') {
+                    rule.$el.find('.rule-value-container').css('min-width', '200px')
+                      .find('.selectize-control').removeClass('form-control');
+                }
+            });
+
+            $('#builder-import_export').queryBuilder({
+                filters: myFilters,
+                rules: rules_basic
+            });
+            if($('#builder-import_export').queryBuilder('reset') )
+            $('#parse-sql').on('click', function () {
+                var result = $('#builder-import_export').queryBuilder('getSQL', false, true);
+
+                if (result.sql.length) {
+                    console.log(result.sql);
+                    alert(result.sql);                    
+                }
+            });
+
+            $('#btn-reset').on('click', function () {
+                $('#builder-import_export').queryBuilder('reset');
+            });
+            
+            $('#parse-json').on('click', function () {
+                var result = $('#builder-import_export').queryBuilder('getRules');
+
+                if (!$.isEmptyObject(result)) {
+                    console.log(JSON.stringify(result, null, 2));
+                    alert(JSON.stringify(result, null, 2));
+                }
+            });
+            //$('#builder-import_export').queryBuilder('setRulesFromSQL', "Name = '1' AND Salary <= 2345");
+        });
+        
+    </script>
+</body>
+
